@@ -1,0 +1,304 @@
+:root {
+    --dark-grey: #1f2c3a;
+    --blue: #3700ff;
+    --font: #212121;
+    --background: #F1F2ED;
+    --theme: #5E6FB8;
+    --theme-shadow: #404E87
+}
+
+body {
+    margin: 0px;
+    background-color: var(--background);
+    background-size: cover;
+    text-align: center;
+    color: var(--font);
+    font-family: 'Sriracha', cursive;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    grid-template-rows: .2fr 9fr .5fr;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+}
+
+header {
+    grid-area: header;
+    height: fit-content;
+    background-color: var(--theme);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0em .6em 0.5em rgb(22 22 22 / 20%);
+}
+nav {
+    margin: auto;
+    display: block;
+    /* height: 40px; */
+    width: 50%;
+    line-height: 2.5em;
+}
+.navItem {
+    display: inline-block;
+    width: 15%;
+    margin: auto;
+}
+
+.navItem:hover {
+    background-color: #4D5DA2;
+}
+
+.burger {
+    display: none;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    grid-area: main;
+    /* background-color: rgba(100, 100, 100, 0.5); */
+    height: max-content;
+    width: 94%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+     display: grid;
+    grid-template-areas: 
+    "profile profile"
+    "experience education"
+    "projects projects"
+    "skills skills";
+    grid-template-rows: .9fr 1.2fr 1.6fr .8fr;
+    grid-template-columns: 1.5fr 1fr;
+    text-align: left;
+}
+
+#profile {
+    grid-area: profile;
+    /* height: 20rem; */
+    background: #fafafa;
+    box-shadow: 0.5em 0.6em 0.7em rgb(22 22 22 / 20%);
+}
+
+#name {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#experienceEducation {
+    display: block;
+}
+
+#experience h3, #education h3 {
+    margin-bottom: 0px;
+}
+
+#experience p, #education p {
+    margin-top: 0px;
+}
+
+footer {
+    grid-area: "footer";
+    background-color: var(--theme);
+}
+
+.inline {
+    display: inline-block;
+}
+
+.right {
+    float: right;
+}
+
+#profileText {
+    margin-left: 20px;
+    margin-right: 2rem;
+    text-align: justify;
+    width: 60%;
+}
+
+#profilePic {
+    background-image: url('https://i.ibb.co/rkZkBTP/profile.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 34%;
+    height: 500px;
+}
+
+#experience {
+    grid-area: experience;
+}
+
+#education{
+    grid-area: education;
+    margin-left: 1%;
+}
+
+.unh {
+    background: url('https://i.ibb.co/qxxjcWM/unh2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 265px;
+    border-radius: 10px;
+}
+
+.horizon {
+    background: url('https://i.ibb.co/4swXWWB/horizon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 269px;
+    border-radius: 10px;
+}
+
+.textOverImage {
+    background-color: rgba(22,22,22,.5);
+    color: var(--background);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+/* .textOverImage h3 {
+    margin-bottom: 0px;
+}
+
+.textOverImage p {
+    margin-top: 0px;
+} */
+
+.leftText {
+    text-align: left;
+}
+
+.rightDate {
+    float: right;
+    font-size: .8em;
+    margin-right: 3%;
+}
+
+.vtop {
+    vertical-align: top;
+}
+
+.borderedBox {
+    border: 1px solid var(--theme);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    background: #FAFAFA;
+    box-shadow: .5em .6em .7em rgba(22,22,22,.2);
+}
+
+.filledBox {
+    border: 2px solid var(--theme);
+    background-color: var(--theme);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.github {
+    height: 20px;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+#projects {
+    grid-area: projects;
+}
+
+#skills {
+    grid-area: skills;
+}
+
+#technicalSkill {
+    width: 49%;
+}
+
+#softSkill {
+    width: 49%;
+}
+
+.noStyle {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.contactIcon {
+    vertical-align: middle;
+}
+
+#contacts p {
+    line-height: 5.5em;
+}
+
+p, li, h1, h2, h3,h4 {
+    cursor: default;
+}
+
+#experience, #projects, #skills {
+    padding-left: 1rem;
+}
+
+.mtop40 {
+    margin-top: 40px;
+    /* padding-top: 40px; */
+}
+
+h3:hover {
+    transform: rotateX(360deg);
+    color: var(--theme);
+    transition-duration: 1s;
+    z-index: 20;
+}
+
+.textOverImage h3 {
+    color: var(--background);
+}
+
+@media only screen and (max-width: 1000px) {
+    main {
+        grid-template-areas: 
+        "profile"
+        "experience"
+        "education"
+        "projects"
+        "skills";
+        grid-template-rows: .5fr .5fr .5fr .6fr .2fr;
+        grid-template-columns: 1fr;
+    }
+
+    #profilePic {
+        width: 100%;
+    }
+
+    #profileText {
+        width: 100%;
+    }
+
+    #profileText p {
+        padding-right: 35px;
+    }
+
+    nav {
+        width: 100%;
+    }
+    
+    .navItem {
+        display: none;
+    }
+    .responsive {
+        display: block;
+        width: 100%;
+    }
+
+    .burger{
+        display: inline;
+        margin: auto;
+    }
+
+
+}
