@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This will create my project",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "node index.js"
   },
