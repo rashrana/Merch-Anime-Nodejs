@@ -4,7 +4,7 @@
   "description": "This will create my project",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index"
+    "dev": "node index.js"
   },
   "author": "",
   "license": "ISC",
