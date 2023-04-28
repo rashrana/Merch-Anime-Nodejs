@@ -227,8 +227,10 @@ footer {
     padding-left: 15px;
 }
 
-.contactIcon {
-    vertical-align: middle;
+a .contactIcon {
+    vertical-align: super;
+    font-size: 1.5em;
+    color: var(--font);
 }
 
 #contacts p {
