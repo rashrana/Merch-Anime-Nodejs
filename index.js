@@ -3,11 +3,11 @@ const { getMerchandise } = require('./controller/merchandiseController');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const cors = require('cors');
 
 const server = http.createServer((req, res)=> {
     console.log(req.url);
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    
+    
     if(req.url === '/') {
 
         fs.readFile(path.join(__dirname, 'portfolio','index.html'),

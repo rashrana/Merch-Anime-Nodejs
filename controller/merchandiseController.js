@@ -9,8 +9,12 @@ async function getMerchandise(req, res) {
         const cursor = await client.db('MerchAnime').collection('merchandise').find({});
         const result = await cursor.toArray();
         const data = JSON.stringify(result);
-        console.log(data);
-        res.writeHead(200,{'Content-Type': 'application/json'});
+        const headers = {
+            'Access-Control-Allow-Origin': '*', 
+            'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
+            'Content-Type': 'application/json'
+          };
+        res.writeHead(200,headers);
         res.end(data);
     } finally {
         await client.close();
