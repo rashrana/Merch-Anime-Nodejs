@@ -1,5 +1,5 @@
 
-const { getMerchandise } = require('./controller/merchandiseController');
+const { getMerchandise, placeOrder, getOrders } = require('./controller/merchandiseController');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -35,19 +35,31 @@ const server = http.createServer((req, res)=> {
         })
     }
     else if(req.url === '/api') {
-        // res.writeHead(200, {'Content-Type':'application/json'});
-        // res.end("{your:data}")
-
-        // fs.readFile(path.join(__dirname, 'public','db.json'),
-        // (err, content) => {
-        //     if (err) throw err;
-        //     res.writeHead(200, {'Content-Type':'application/json'});
-        //     res.end(content);
-        // })
-
-        // const result = await run().catch(console.dir);
         getMerchandise(req,res);
 
+    } else if(req.url === '/getOrder') {
+        getOrders(req,res);
+    }
+    else if (req.method === 'OPTIONS') {
+        // Handle preflight request
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        res.writeHead(200);
+        res.end();
+    }
+    else if(req.url === '/placeOrder' && req.method == 'POST') {
+        
+        console.log("hello my friend");
+        const chunks = [];
+        req.on('data', chunk => chunks.push(chunk));
+        req.on('end', () => {
+        const data = Buffer.concat(chunks);
+        const body = JSON.parse(new Buffer.from(data).toString());
+        console.log(body)
+        placeOrder(req,res, body);
+        
+        })
     }
     else {
         res.writeHead(404, {'Content-Type':'text/html'})
